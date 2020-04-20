@@ -17,6 +17,11 @@ export class ApiService {
         return this.http.get('https://www.breakingbadapi.com/api/episodes/${id}')
     }
 
+        getEpisodeDetails(id: any, episode: any) {
+        return this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`).subscribe(res => {episode=res;});
+    }
+        
+
     getCharacters() {
         return this.http.get('https://breakingbadapi.com/api/characters')
     }
