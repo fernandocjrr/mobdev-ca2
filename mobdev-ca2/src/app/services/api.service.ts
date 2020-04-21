@@ -9,25 +9,32 @@ export class ApiService {
     constructor(private http: HttpClient) { }
 
 
+    // getEpisodes() {
+    //     return this.http.get('https://www.breakingbadapi.com/api/episodes')
+    // }
+
     getEpisodes() {
-        return this.http.get('https://www.breakingbadapi.com/api/episodes')
+        return this.http.get('https://8100-fa133542-953b-4a3c-9ea0-c20038ba9568.ws-eu01.gitpod.io/assets/episodes.json')
     }
 
     getEpisode(id) {
-        return this.http.get('https://www.breakingbadapi.com/api/episodes/${id}')
+        return this.http.get(`https://8100-fa133542-953b-4a3c-9ea0-c20038ba9568.ws-eu01.gitpod.io/assets/episodes.json`)
+    }        
+
+   // getCharacters() {
+    //    return this.http.get('https://breakingbadapi.com/api/characters')
+    //}
+
+        getCharacters() {
+        return this.http.get('https://8100-fa133542-953b-4a3c-9ea0-c20038ba9568.ws-eu01.gitpod.io/assets/characters.json')
     }
 
-        getEpisodeDetails(id: any, episode: any) {
-        return this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`).subscribe(res => {episode=res;});
-    }
-        
+    //getCharacter(id) {
+    //    return this.http.get(`https://www.breakingbadapi.com/api/characters/${id}`)
+    //}
 
-    getCharacters() {
-        return this.http.get('https://breakingbadapi.com/api/characters')
-    }
-
-    getCharacter(id) {
-        return this.http.get('https://www.breakingbadapi.com/api/characters/${id}')
+        getCharacter(id) {
+        return this.http.get('https://8100-fa133542-953b-4a3c-9ea0-c20038ba9568.ws-eu01.gitpod.io/assets/characters.json')
     }
 
     getQuotes() {
@@ -35,11 +42,11 @@ export class ApiService {
     }
 
     getQuote(id) {
-        return this.http.get('https://www.breakingbadapi.com/api/quotes/${id}')
+        return this.http.get(`https://www.breakingbadapi.com/api/quotes/${id}`)
     }
 
     getDeaths() {
-        return this.http.get('https://breakingbadapi.com/api/deaths')
+        return this.http.get(`https://breakingbadapi.com/api/death-count?name=Gustavo+Fring`)
     }
 
 }
