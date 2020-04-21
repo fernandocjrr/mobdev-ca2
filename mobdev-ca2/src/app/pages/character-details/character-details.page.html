@@ -5,10 +5,10 @@
 		</ion-buttons>
 		<ion-title>{{ character?.name }}</ion-title>
 		<ion-buttons slot="end">
-			<ion-button (click)="unfavouriteCharacter()" *ngIf="isFavouriteCharacter">
+			<ion-button (click)="unfavouriteEpisode()" *ngIf="isFavourite">
 				<ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
 			</ion-button>
-			<ion-button (click)="favouriteCharacter()" *ngIf="!isFavouriteCharacter">
+			<ion-button (click)="favouriteEpisode()" *ngIf="!isFavourite">
 				<ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
 			</ion-button>
 		</ion-buttons>
@@ -25,37 +25,37 @@
 
 	
 		<ion-item class="movie-info" lines="none">
-			<ion-icon name="episode" slot="start"></ion-icon>
+			<ion-icon name="person-outline" slot="start"></ion-icon>
 			Name: {{ character.name }}
 		</ion-item>
 
 		<ion-item class="movie-info" lines="none">
-			<ion-icon name="episode" slot="start"></ion-icon>
+			<ion-icon name="gift-outline" slot="start"></ion-icon>
 			Birthday: {{ character.birthday }}
 		</ion-item>
 
 		<ion-item class="movie-info" lines="none">
-			<ion-icon name="episode" slot="start"></ion-icon>
+			<ion-icon name="briefcase-outline" slot="start"></ion-icon>
 			Occupation: {{ character.occupation }}
 		</ion-item>
 
 		<ion-item class="movie-info" lines="none">
-			<ion-icon name="episode" slot="start"></ion-icon>
+			<ion-icon name="pulse-outline" slot="start"></ion-icon>
 			Status: {{ character.status }}
 		</ion-item>
 
         		<ion-item class="movie-info" lines="none">
-			<ion-icon name="episode" slot="start"></ion-icon>
+			<ion-icon name="filme-outline" slot="start"></ion-icon>
 			Appearances in Season: {{ character.appearance }}
 		</ion-item>
 
         		<ion-item class="movie-info" lines="none">
-			<ion-icon name="episode" slot="start"></ion-icon>
+			<ion-icon name="body-outline" slot="start"></ion-icon>
 			Portrayed by: {{ character.portrayed }}
 		</ion-item>
 
         		<ion-item class="movie-info" lines="none">
-			<ion-icon name="episode" slot="start"></ion-icon>
+			<ion-icon name="videocam-outline" slot="start"></ion-icon>
 			Series: {{ character.category }}
 		</ion-item>
         
