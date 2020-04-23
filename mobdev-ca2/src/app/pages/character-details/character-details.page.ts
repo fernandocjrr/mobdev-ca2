@@ -24,19 +24,19 @@ export class CharacterDetailsPage implements OnInit {
             this.character = res[0];
         });
 
-        this.favouriteService.isFavourite(this.characterId).then(isFav => {
+        this.favouriteService.isFavouriteChar(this.characterId).then(isFav => {
             this.isFavourite = isFav;
         });
     }
 
-        favouriteEpisode() {
-        this.favouriteService.favouriteEpisode(this.characterId).then(() => {
+        favouriteCharacter() {
+        this.favouriteService.favouriteCharacter(this.characterId).then(() => {
             this.isFavourite = true;
         });
     }
 
-    unfavouriteEpisode() {
-        this.favouriteService.unfavouriteEpisode(this.characterId).then(() => {
+    unfavouriteCharacter() {
+        this.favouriteService.unfavouriteCharacter(this.characterId).then(() => {
             this.isFavourite = false;
         });
     }

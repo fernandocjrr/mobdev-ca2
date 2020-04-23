@@ -3,7 +3,7 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/quotes"></ion-back-button>
 		</ion-buttons>
-		<ion-title>{{ quote?.id }}</ion-title>
+		<ion-title>Quote number {{ quote?.quote_id }}</ion-title>
 		<ion-buttons slot="end">
 			<ion-button (click)="unfavouriteEpisode()" *ngIf="isFavourite">
 				<ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>

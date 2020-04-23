@@ -10,7 +10,7 @@ export class ApiService {
 
 
      getEpisodes() {
-         return this.http.get('https://www.breakingbadapi.com/api/episodes')
+         return this.http.get(`https://www.breakingbadapi.com/api/episodes`);
      }
 
     //getEpisodes() {
@@ -61,5 +61,6 @@ export class ApiService {
     getDeaths() {
         return this.http.get(`https://breakingbadapi.com/api/death-count?name=Gustavo+Fring`)
     }
+    
 
 }
