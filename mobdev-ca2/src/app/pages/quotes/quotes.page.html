@@ -2,6 +2,9 @@
 	<ion-toolbar color="primary">
 		<ion-title>Quotes</ion-title>
 	</ion-toolbar>
+    <ion-toolbar>
+     <ion-searchbar [(ngModel)]="author" (ionChange)="search($event)" placeholder="Search by Author"></ion-searchbar>
+     </ion-toolbar>
 </ion-header>
 <ion-content>
 	<ion-list>

@@ -24,21 +24,6 @@ export class QuoteDetailsPage implements OnInit {
             this.quote = res[0];
         });
 
-        this.favouriteService.isFavourite(this.quoteId).then(isFav => {
-            this.isFavourite = isFav;
-        });
-    }
-
-        favouriteEpisode() {
-        this.favouriteService.favouriteEpisode(this.quoteId).then(() => {
-            this.isFavourite = true;
-        });
-    }
-
-    unfavouriteEpisode() {
-        this.favouriteService.unfavouriteEpisode(this.quoteId).then(() => {
-            this.isFavourite = false;
-        });
     }
 
 }
