@@ -1,4 +1,3 @@
-import { FavouriteService } from '../../services/favourite.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
@@ -14,7 +13,7 @@ export class QuoteDetailsPage implements OnInit {
     isFavourite = false;
     quoteId = null;
 
-    constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private favouriteService: FavouriteService) { }
+    constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
     ngOnInit() {
         

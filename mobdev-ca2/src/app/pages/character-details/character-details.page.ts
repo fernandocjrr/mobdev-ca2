@@ -1,4 +1,4 @@
-import { FavouriteService } from '../../services/favourite.service';
+import { LikeService } from '../../services/(dis)like.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
@@ -11,35 +11,44 @@ import { ApiService } from '../../services/api.service';
 export class CharacterDetailsPage implements OnInit {
 
     character: any;
-    isFavourite = false;
+    isLiked = false;
+    isDisliked = false;
     characterId = null;
 
-    constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private favouriteService: FavouriteService) { }
+    constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private likeService: LikeService) { }
 
     ngOnInit() {
-        
         this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
-
         this.api.getCharacter(this.characterId).subscribe(res => {
             this.character = res[0];
         });
 
-        this.favouriteService.isFavouriteChar(this.characterId).then(isFav => {
-            this.isFavourite = isFav;
+        this.likeService.isLikedCharacter(this.characterId).then(liked => {
+            this.isLiked = liked;
+        });
+
+        this.likeService.isDislikedCharacter(this.characterId).then(disliked => {
+            this.isDisliked = disliked;
         });
     }
 
-        favouriteCharacter() {
-        this.favouriteService.favouriteCharacter(this.characterId).then(() => {
-            this.isFavourite = true;
+    likeCharacter() {
+        this.likeService.likeCharacter(this.characterId).then(() => {
+            this.isLiked = true;
+            this.isDisliked = false;
         });
     }
 
-    unfavouriteCharacter() {
-        this.favouriteService.unfavouriteCharacter(this.characterId).then(() => {
-            this.isFavourite = false;
+    dislikeCharacter(){
+        this.likeService.dislikeCharacter(this.characterId).then(() => {
+            this.isLiked = false;
+            this.isDisliked = true;
         });
     }
 
-
+    noStatusCharacter(){
+        this.likeService.noStatusCharacter(this.characterId);
+        this.isLiked = false;
+        this.isDisliked = false;
+    }
 }

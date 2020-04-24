@@ -28,9 +28,10 @@ export class ApiService {
     //   return this.http.get(`https://8100-fa133542-953b-4a3c-9ea0-c20038ba9568.ws-eu01.gitpod.io/assets/episodes.json`)
     //}
 
-    getCharacters() {
-        return this.http.get('https://breakingbadapi.com/api/characters')
+    getCharacters(limit: number, offset: number) {
+        return this.http.get(`https://breakingbadapi.com/api/characters?limit=${limit}&offset=${offset}`)
     }
+
 
     //getCharacters() {
     //    return this.http.get('https://8100-fa133542-953b-4a3c-9ea0-c20038ba9568.ws-eu01.gitpod.io/assets/characters.json')
@@ -63,11 +64,11 @@ export class ApiService {
     getQuoteSearch(author: string) {
         let selectedQuotes: any[] = [];
         for (let quote of this.allQuotes) {
-              if (quote.author.toLowerCase().includes(author.toLowerCase())) {
+            if (quote.author.toLowerCase().includes(author.toLowerCase())) {
                 selectedQuotes.push(quote);
             }
         }
-         return of(selectedQuotes);
+        return of(selectedQuotes);
     }
 
     //getQuote(id) {

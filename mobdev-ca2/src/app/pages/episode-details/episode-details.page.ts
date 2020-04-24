@@ -1,4 +1,4 @@
-import { FavouriteService } from '../../services/favourite.service';
+import { LikeService } from '../../services/(dis)like.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
@@ -11,34 +11,45 @@ import { ApiService } from '../../services/api.service';
 export class EpisodeDetailsPage implements OnInit {
 
     episode: any;
-    isFavourite = false;
+    isLiked = false;
+    isDisliked = false;
     episodeId = null;
 
-    constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private favouriteService: FavouriteService) { }
+    constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private likeService: LikeService) { }
 
     ngOnInit() {
 
         this.episodeId = this.activatedRoute.snapshot.paramMap.get('id');
-
         this.api.getEpisode(this.episodeId).subscribe(res => {
             this.episode = res[0];
         });
 
-        this.favouriteService.isFavourite(this.episodeId).then(isFav => {
-            this.isFavourite = isFav;
+          this.likeService.isLikedEpisode(this.episodeId).then(liked => {
+            this.isLiked = liked;
+        });
+
+        this.likeService.isDislikedEpisode(this.episodeId).then(disliked => {
+            this.isDisliked = disliked;
         });
     }
 
-    favouriteEpisode() {
-        this.favouriteService.favouriteEpisode(this.episodeId).then(() => {
-            this.isFavourite = true;
+    likeEpisode() {
+        this.likeService.likeEpisode(this.episodeId).then(() => {
+            this.isLiked = true;
+            this.isDisliked = false;
         });
     }
 
-    unfavouriteEpisode() {
-        this.favouriteService.unfavouriteEpisode(this.episodeId).then(() => {
-            this.isFavourite = false;
+    dislikeEpisode(){
+        this.likeService.dislikeEpisode(this.episodeId).then(() => {
+            this.isLiked = false;
+            this.isDisliked = true;
         });
     }
 
+    noStatusEpisode(){
+        this.likeService.noStatusEpisode(this.episodeId);
+        this.isLiked = false;
+        this.isDisliked = false;
+    }
 }
