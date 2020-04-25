@@ -11,7 +11,7 @@
 		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quote)">
 			
             <ion-label>
-"{{ quote.quote }}"
+<h2>"{{ quote.quote }}"</h2>
             <ion-card-subtitle style="padding: 10px 5px 5px 0px"  >{{ quote.author }}</ion-card-subtitle>
 </ion-label>
 		</ion-item>
