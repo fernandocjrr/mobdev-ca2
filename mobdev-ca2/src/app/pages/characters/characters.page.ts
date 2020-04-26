@@ -28,6 +28,8 @@ export class CharactersPage implements OnInit {
         this.router.navigateByUrl(`/tabs/characters/${characterID}`);
     }
 
+    // Reference for infinite scroll https://www.youtube.com/watch?v=NBeExE9dvR0
+
     loadCharacters(event?) {
 
         this.api.getCharacters(this.limit, this.offset)
@@ -37,7 +39,7 @@ export class CharactersPage implements OnInit {
                     event.target.complete();
                 }
             })
-    }   
+    }
 
     loadMore(event?) {
         this.offset += 15;

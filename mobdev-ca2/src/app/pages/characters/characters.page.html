@@ -15,6 +15,7 @@
 				</ion-label>
 		</ion-item>
 	</ion-list>
+	<!-- Reference for infinite scroll https://www.youtube.com/watch?v=NBeExE9dvR0 -->
 	<ion-infinite-scroll threshold="20%" id="infinite-scroll" (ionInfinite)="loadMore($event)">
 		<ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
 		</ion-infinite-scroll-content>
