@@ -7,7 +7,6 @@ import { of } from 'rxjs';
 })
 export class ApiService {
 
-    allQuotes: Array<any>;
 
     constructor(private http: HttpClient) { }
 
@@ -46,10 +45,11 @@ export class ApiService {
     //}
 
     getQuotes() {
-        this.http.get(('https://breakingbadapi.com/api/quotes')).subscribe(data => {
-            this.allQuotes = data as Array<any>;
-        });
         return this.http.get('https://breakingbadapi.com/api/quotes')
+    }
+
+    getQuotesByAuthor(author: String) {
+        return this.http.get(`https://breakingbadapi.com/api/quote?author=${author}`)
     }
 
     //getQuotes() {
@@ -61,22 +61,12 @@ export class ApiService {
         return this.http.get(`https://www.breakingbadapi.com/api/quotes/${id}`)
     }
 
-    getQuoteSearch(author: string) {
-        let selectedQuotes: any[] = [];
-        for (let quote of this.allQuotes) {
-            if (quote.author.toLowerCase().includes(author.toLowerCase())) {
-                selectedQuotes.push(quote);
-            }
-        }
-        return of(selectedQuotes);
-    }
-
     //getQuote(id) {
     //   return this.http.get('https://8100-fa133542-953b-4a3c-9ea0-c20038ba9568.ws-eu01.gitpod.io/assets/quotes.json')
     //}
 
-    getDeaths() {
-        return this.http.get(`https://breakingbadapi.com/api/death-count?name=Gustavo+Fring`)
+    getDeathCount(name: String) {
+        return this.http.get(`https://breakingbadapi.com/api/death-count?name=${name}`)
     }
 
 

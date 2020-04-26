@@ -24,12 +24,10 @@
 <ion-content padding>
 
 	<ion-card *ngIf="character" class="movie-card">
+	<ion-img style="align-items: center width: 250px; height: 250px;"src="{{character.img}}"></ion-img>
+    </ion-card>
 
-
-    <ion-img style="align-items: center width: 250px; height: 250px;"src="{{character.img}}"></ion-img>
-
-
-	
+    <ion-card *ngIf="character" class="movie-card">
 		<ion-item class="movie-info" lines="none">
 			<ion-icon name="person-outline" slot="start"></ion-icon>
 			Name: {{ character.name }}

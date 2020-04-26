@@ -10,7 +10,6 @@ import { ApiService } from '../../services/api.service';
 export class QuoteDetailsPage implements OnInit {
 
     quote: any;
-    isFavourite = false;
     quoteId = null;
 
     constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }

@@ -8,7 +8,7 @@
 		<ion-item button detail lines="inset" *ngFor="let episode of episodes | async" (click)="openDetails(episode)">
 			<ion-label>
             <h2>{{ episode.title }}</h2>
-            <ion-card-subtitle style="float: left;"><p>S{{ episode.season }}E{{ episode.episode }}</p></ion-card-subtitle>
+            <ion-card-subtitle style="float: left; " style="color:rgba(255, 255, 255, 0.349)"><p>S{{ episode.season }}E{{ episode.episode }}</p></ion-card-subtitle>
 			</ion-label>
 		</ion-item>
 	</ion-list>

@@ -24,7 +24,10 @@ export class QuotesPage implements OnInit {
         this.router.navigateByUrl(`/tabs/quotes/${quoteID}`);
     }
 
-    search() {
-        this.quotes = this.api.getQuoteSearch(this.author);
+    //Pass the author typed in the search toolbar to getQuotesByAuthor method which returns all quotes by the author.
+    //The search is not case sensitive but the whole name and surname need to be typed in order to return the right collection.
+    filter() {
+        this.quotes = this.api.getQuotesByAuthor(this.author);
+        this.quotes.subscribe(data => { console.log('my data', data); });
     }
 }
